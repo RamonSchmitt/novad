@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
   def index
-    @articles = Article.joins(:topics).
+    @novels = Novel.joins(:author).
       search(search_param)
 
     respond_to do |format|
       format.html
-      format.json { render json: @articles }
+      format.json { render json: @novels }
     end
   end
 
